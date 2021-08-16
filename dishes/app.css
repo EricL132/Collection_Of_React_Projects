@@ -13,9 +13,8 @@
 }
 .dish-full .mobile-container {
     width: 350px;
-    top: 10rem;
     background-color: white;
-
+    margin-top: 6rem;
 }
 
 .dish-full img {
@@ -30,7 +29,7 @@
 }
 
 .dish-full header input {
-    background-color: #97D9E1;
+    background-color: #d0a1ff;
     border: none;
     border-radius: 3px;
     padding: 0.5rem;
@@ -40,7 +39,7 @@
 .dish-full header button {
     border: none;
     background-color: transparent;
-    color: #97D9E1;
+    color: #d0a1ff;
     font-size: 2rem;
     outline: none;
 }
@@ -48,8 +47,7 @@
 .dish-full .fav-container {
     text-align: center;
     padding: 1rem;
-    background-color: turquoise;
-
+    background-color: #d0a1ff;
 }
 
 .dish-full .fav-meals {
@@ -58,6 +56,7 @@
     padding: 0;
     list-style: none;
     justify-content: space-between;
+    min-height: 75px;
 }
 
 .dish-full .fav-meals li {
@@ -67,6 +66,7 @@
     align-items: center;
     position: relative;
     min-width: 100px;
+    
 }
 
 .dish-full .fav-meals .deleteFav {
@@ -109,6 +109,7 @@
 
 .dish-full .meal-header {
     position: relative;
+    cursor: pointer;
 }
 
 .dish-full .meal-header .random {
@@ -147,7 +148,7 @@
 }
 
 .dish-full .meal .fav-btn.active {
-    color: turquoise;
+    color: #eeaeca;
 }
 
 .dish-full .meal-info-container {
@@ -172,7 +173,7 @@
     padding: 1.5rem;
     position: relative;
     overflow: auto;
-    overscroll-behavior: contain
+    overscroll-behavior: contain;
 }
 
 .dish-full .meal-info::-webkit-scrollbar {

@@ -19,27 +19,29 @@ class App extends React.Component {
             const url = await res.json()
             window.open(url.url, "_self")
         } else {
-        
+
             this.state.pageLoaded = true
         }
 
     }
-    async handleShorten() {
-        this.setState({shorturl:""})
-        const url = document.getElementById("url-input").value
-        if (url && url.includes('://') && url.includes('https') && url.includes('.') || url.includes('http') && url.includes('.')) {
 
-            const res = await fetch('/api/shorten', { method: "POST", headers: { 'Content-type': 'application/json' }, body: JSON.stringify({ url: url }) })
-            const shorturl = await res.json();
-            this.setState({shorturl:shorturl.shorturl})
-            document.getElementById("url-input").value = ""
-            this.copyshort()
+    async handleShorten() {
+        this.setState({ shorturl: "" })
+        const url = document.getElementById("url-input").value
+        if (url && url.includes('://') && (url.includes('https') || url.includes('http')) && url.includes('.')) {
+
+            fetch('/api/shorten', { method: "POST", headers: { 'Content-type': 'application/json' }, body: JSON.stringify({ url: url }) }).then(res => res.json()).then(data => {
+                this.setState({ shorturl: data.shorturl })
+                document.getElementById("url-input").value = ""
+                this.copyshort()
+            })
+
         } else {
             console.log('invalid url')
         }
     }
 
-    copyshort(){
+    copyshort() {
         const buttonEle = document.getElementById('copy-button')
         buttonEle.innerHTML = "Copy"
         var dummy = document.createElement("textarea");
@@ -48,10 +50,10 @@ class App extends React.Component {
         dummy.select();
         document.execCommand("copy");
         document.body.removeChild(dummy);
-        setTimeout(()=>{
+        setTimeout(() => {
             buttonEle.innerHTML = "Copied"
-        },100)
-        
+        }, 100)
+
     }
     render() {
         return (
@@ -61,13 +63,13 @@ class App extends React.Component {
                         <h1>URL SHORTENER</h1>
                         <div className="short-container">
                             <div className="input-container">
-                                <input id="url-input" placeholder="Url"></input>
+                                <input autoComplete="off" spellCheck={false} id="url-input" placeholder="Url"></input>
                                 <button onClick={this.handleShorten}>Shorten</button>
                                 {this.state.shorturl ?
                                     <div className="short-url-container">{this.state.shorturl}
-                                    <button id="copy-button" onClick={this.copyshort}>Copied</button>
+                                        <button id="copy-button" onClick={this.copyshort}>Copied</button>
                                     </div>
-                                    
+
                                     : null}
                             </div>
                         </div>

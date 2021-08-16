@@ -1,0 +1,43 @@
+#google-auth-container .dash-container{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 1rem;
+  height: 450px;
+  width: 350px;
+  user-select: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#google-auth-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+#google-auth-container .default-button{
+  padding: .7rem 2rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+  outline: none;
+}
+
+#google-auth-container #dash-image{
+
+  margin-top: 2rem;
+}
+
+#google-auth-container .default-button:active{
+  transform: translateY(1px);
+}
+
+#google-auth-container #login-container{
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}

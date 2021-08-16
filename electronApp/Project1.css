@@ -1,0 +1,77 @@
+.project1-Container{
+    background: url('../../images/grass.jpg')no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden;
+    image-rendering: -moz-crisp-edges
+}
+.projects-con{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.project1-Container .project-Image{
+    display: block;
+    width: 100%;
+    height: auto;
+
+
+}
+
+
+.project1-Container .project1-Picture{
+    position: relative;
+    width: 700px;
+    margin: 2rem;
+}
+
+
+
+
+
+.project1-Container .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #eeeeee;
+    border-radius:5px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+.project1-Container .project1-Picture:hover .overlay{
+
+    opacity: 1;
+}
+
+.project1-Container .overlay-Text{
+    color: black;
+    font-size: 17px;
+    position: absolute;
+    left: 5%;
+    font-style: georgia;
+    vertical-align: auto;
+
+  }
+  .project1-Container .overlay-Text ul{
+      font-size: 13px;
+      font-style: tahoma    ;
+  }

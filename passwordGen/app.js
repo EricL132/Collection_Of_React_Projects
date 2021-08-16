@@ -48,7 +48,7 @@ class app extends React.Component {
     render() {
         return (
             <div className='gen-container'>
-                <div className="whole-container">
+                <div className="gen-whole-container">
                     <h2 style={{ paddingTop: '2rem' }}>Password Generator</h2>
                     <div className="password-container">
                         {this.state.generatedpass}
@@ -57,23 +57,23 @@ class app extends React.Component {
                     </div>
                     <div className="password-body">
                         <div className="choice">
-                            <labal htmlFor="length">Password Length</labal>
+                            <label htmlFor="length">Password Length</label>
                             <input defaultValue="20" type="number" id="length"></input>
                         </div>
                         <div className="choice">
-                            <labal htmlFor="upper">Contain Uppercase Letters</labal>
+                            <label htmlFor="upper">Contain Uppercase Letters</label>
                             <input type="checkbox" id="upper"></input>
                         </div>
                         <div className="choice">
-                            <labal htmlFor="lower">Contain Lowercase Letters</labal>
+                            <label htmlFor="lower">Contain Lowercase Letters</label>
                             <input type="checkbox" id="lower"></input>
                         </div>
                         <div className="choice">
-                            <labal htmlFor="number">Contain Numbers</labal>
+                            <label htmlFor="number">Contain Numbers</label>
                             <input type="checkbox" id="number"></input>
                         </div>
                         <div className="choice">
-                            <labal htmlFor="symbol">Contain Unique Symbols</labal>
+                            <label htmlFor="symbol">Contain Unique Symbols</label>
                             <input type="checkbox" id="symbol"></input>
                         </div>
                         <button onClick={this.generatePass} id="generate">Generate Password</button>

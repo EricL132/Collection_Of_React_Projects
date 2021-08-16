@@ -11,7 +11,7 @@
     display: flex;
     justify-content: flex-end;
     background-color: #1F305E;
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .movieweb-container .search {
@@ -25,6 +25,7 @@
     background-color: #1F305E;
     color: white;
     border: 2px solid #13274F;
+    
 }
 
 .movieweb-container .overview {
@@ -45,10 +46,15 @@
     transform: translateY(0);
 }
 
-.movieweb-container .movie-container {}
+.movieweb-container .movie-container {
+
+
+}
 
 .movieweb-container .movie-list-container {
+    justify-content: center;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 

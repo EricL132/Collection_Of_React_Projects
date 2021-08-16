@@ -1,0 +1,21 @@
+.notfound-whole{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.notfound-mid{
+    width: 600px;
+    height: 300px;
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    user-select: none;
+    
+}
+.notfound-mid span{
+    font-size: 2rem;
+}

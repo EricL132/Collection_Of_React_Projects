@@ -1,0 +1,92 @@
+.whole-container {
+    background: rgb(177, 202, 231);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.whole-container .home-container {
+    width: 700px;
+    height: 520px;
+    background-color: rgb(255, 204, 204);
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.whole-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    background-color: #121212;
+    top: 0;
+    padding: 2.5rem;
+    color: #00d4ff;
+    position: absolute;
+    width: 100%;
+    margin-top: 0;
+    z-index: 1;
+}
+
+.whole-container .input-containers {
+    padding: .5rem;
+}
+
+.whole-container .input-fields {
+    outline: none;
+    font-size: 1rem;
+    width: 200px;
+    padding: .5rem 0;
+    padding-left: .5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.whole-container span {
+    position: absolute;
+    padding: .5rem;
+    margin-top: 7rem;
+
+}
+
+.whole-container button {
+    position: absolute;
+    padding: .5rem;
+    margin-top: 14rem;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    border:none;
+}
+
+.whole-container button:hover{
+    background:black;
+    color:white;
+}
+
+.whole-container .error-container {
+    position: absolute;
+    margin-top: 20rem;
+}
+
+@media (max-width:700px) {
+    .whole-container .home-container {
+        width: 90%;
+        height: 520px;
+        background-color: rgb(255, 204, 204);
+        border-radius: 5px;
+        overflow: hidden;
+        justify-content: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}

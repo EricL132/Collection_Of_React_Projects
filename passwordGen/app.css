@@ -5,13 +5,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #1F1E2F;
+    background-size: cover;
+    background-repeat: repeat;
 }
 
-.gen-container .whole-container {
+.gen-container .gen-whole-container {
     background-color: #4C516D;
-    width: 360px;
+    width: 340px;
     height: 500px;
     color: #eeeeee;
     position: relative;
@@ -68,6 +70,10 @@
     margin-right: 100px;
 }
 
+
+.gen-container .password-body input{
+    cursor: pointer;
+}
 .gen-container #length {
     width: 40px;
     outline: none;
@@ -91,4 +97,21 @@
     outline: none;
     border-radius: 5px;
     border-color: #662d91;
+    cursor: pointer;
+}
+
+
+@media (max-width:400px){
+    .gen-container .gen-whole-container {
+        background-color: #4C516D;
+        width: 90%;
+        height: 500px;
+        color: #eeeeee;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        height: auto;
+    }
 }

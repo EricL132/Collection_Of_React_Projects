@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   performEqual() {
-    if (this.state.upperprint.length != 0) {
+    if (this.state.upperprint.length !== 0) {
       const uppernum = this.state.upperprint.toString().replaceAll(",", "").slice(0, -1)
       const newnum = this.state.currentString.toString()
       console.log(this.state.upperprint)

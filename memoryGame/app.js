@@ -21,14 +21,21 @@ class app extends React.Component {
         const slots = []
         for (var i = 0; i < this.state.level * 2; i++) {
             let img
-            while (true) {
+            let break_while = true
+            while (break_while) {
                 img = pictures[Math.floor(Math.random() * (99 - 1) + 1)].download_url
-                const res = this.state.pictures.every((item) => {
-                    return item.img !== img
-                })
-                if (res) {
-                    break;
+                if(this.state.pictures.length===0){
+                    break_while=false
+                }else{
+
+                    for(var p=0;p<this.state.pictures.length;p++){
+                        if(this.state.pictures[p].img !== img){
+                            break_while=false
+                        }
+                    }
                 }
+                
+
             }
 
 
@@ -38,9 +45,9 @@ class app extends React.Component {
 
         }
         const numpic = this.state.pictures.length
-        for (var i = 0; i < numpic; i++) {
+        for (var j = 0; j < numpic; j++) {
             const picslot = Math.floor(Math.random() * (this.state.pictures.length - 0) + 0)
-            this.state.cards.push(<div key={i} cardid={this.state.pictures[picslot].id} onClick={(this.state.clickable && this.handleMove || null)} className="card-container"><img style={{ display: "none" }} src={this.state.pictures[picslot].img}></img></div>)
+            this.state.cards.push(<div key={j} cardid={this.state.pictures[picslot].id} onClick={(this.state.clickable ? this.handleMove : null)} className="card-container"><img style={{ display: "none" }} src={this.state.pictures[picslot].img} alt="guessing"></img></div>)
             this.state.pictures.splice(picslot, 1)
         }
 
@@ -78,8 +85,8 @@ class app extends React.Component {
                     this.checkWin()
                 })
                 this.setState({ previousCard: '' })
-                for (var i = 0; i < ca.length; i++) {
-                    ca[i].style.pointerEvents = "";
+                for (var k = 0; k < ca.length; k++) {
+                    ca[k].style.pointerEvents = "";
                 }
                 return
             } else {
@@ -89,8 +96,8 @@ class app extends React.Component {
                     }
                     cardele.firstChild.style.display = ""
                     setTimeout(() => {
-                        this.state.previousCard.firstChild.style.display = "none"
-                        this.state.previousCard.firstChild.style.display = "none"
+                        const prev = this.state.previousCard
+                        this.setState({previousCard:prev.firstChild.style.display = "none"})
                         cardele.firstChild.style.display = "none"
                         for (var i = 0; i < ca.length; i++) {
                             ca[i].style.pointerEvents = "";
@@ -102,8 +109,8 @@ class app extends React.Component {
 
 
                 } else {
-                    for (var i = 0; i < ca.length; i++) {
-                        ca[i].style.pointerEvents = "";
+                    for (var a = 0; a < ca.length; a++) {
+                        ca[a].style.pointerEvents = "";
                     }
                     this.setState({ previousCard: cardele })
                 }

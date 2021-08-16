@@ -22,8 +22,11 @@ class app extends React.Component {
         clearInterval(interval)
     }
     updateSpeed(){
-        this.state.time = this.state.time+1;
-        this.setState({speed:Math.floor((this.state.typedWords/5)/ (this.state.time/60))})
+        if(interval){
+            this.setState({time:this.state.time+1})
+            this.setState({speed:Math.floor((this.state.typedWords/5)/ (this.state.time/60))})
+        }
+
     }
     async getWords() {
         const numWords = Math.floor(Math.random() * (20 - 10) + 10)
@@ -31,7 +34,7 @@ class app extends React.Component {
         const resWords = await res.json()
         const resResult = []
         resWords.map((word) => {
-            resResult.push(word.split(''))
+           return resResult.push(word.split(''))
 
         })
         this.setState({ words: resResult })
@@ -42,9 +45,8 @@ class app extends React.Component {
     }
 
     handleKeyPress(e) {
-        if (e.key === this.state.joinedWords2win[0] || this.state.joinedWords2win[0]==="_" && e.key===" ") {
-    
-                this.state.typedWords = this.state.typedWords+1
+        if ((e.key === this.state.joinedWords2win[0]) || (this.state.joinedWords2win[0]==="_" && e.key===" ")) {
+            this.setState({typedWords:this.state.typedWords+1})
             const contain = Array.from(e.target.children)
             const result = contain.find((child) => {
                 return !child.classList.contains('typed')
@@ -68,7 +70,7 @@ class app extends React.Component {
         const typedletters = Array.from(document.getElementsByClassName('typed'))
         
         typedletters.map((ele)=>{
-            ele.classList = ""
+            return ele.classList = ""
         })
         this.setState({ joinedWords2win: this.state.joinedWords.slice(0)})
         

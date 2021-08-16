@@ -1,4 +1,4 @@
-.whole-container{
+.tic-tac-whole-container{
     background-color: #eec0c8;
     min-height: 100vh;
     background-size: cover;
@@ -9,7 +9,7 @@
     position: relative;
 }
 
-.whole-container .game-container{
+.tic-tac-whole-container .game-container{
     width: 450px;
     height: 450px;
     background-color: white;
@@ -18,7 +18,7 @@
     flex-wrap: wrap;
 }
 
-.whole-container .tick-box{
+.tic-tac-whole-container .tick-box{
     width: 150px;
     height: 150px;
     border: 1px solid black;
@@ -31,11 +31,11 @@
 
 
 
-.whole-container .tick-box .fa-circle{
+.tic-tac-whole-container .tick-box .fa-circle{
     font-size:7rem !important;
 }
 
-.who-container{
+.tic-tac-whole-container .who-container{
     background-color: #FFC0CB;
     width: 400px;
     align-self: center;
@@ -48,7 +48,7 @@
     align-items: center;
 }
 
-.who-container button{
+.tic-tac-whole-container .who-container button{
     cursor: pointer;
     padding: .4rem;
     font-size: 1rem;
@@ -57,17 +57,17 @@
     border: 1px solid black;
     outline: none;
 }
-.who-container button:active{
+.tic-tac-whole-container .who-container button:active{
     border-bottom: 2px solid black;
 }
 
-.who-container  .button-container{
+.tic-tac-whole-container .who-container  .button-container{
     width: 50%;
     display: flex;
     justify-content: space-between;
 }
 
-.winner-container{
+.tic-tac-whole-container .winner-container{
     width: 200px;
     height: 100px;
     color: black;
@@ -82,10 +82,10 @@
 
 }
 
-.winner-container span{
+.tic-tac-whole-container .winner-container span{
     margin-top: -10px;
 }
-.restart-button{
+.tic-tac-whole-container .restart-button{
     position: absolute;
     bottom: 10px;
     color: white;
@@ -94,4 +94,47 @@
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+}
+
+
+@media (max-width:500px){
+    .tic-tac-whole-container .game-container{
+        width: 90%;
+        height: 450px;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+
+    
+.tic-tac-whole-container .tick-box{
+    width: 33%;
+    height: 33%;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+}
+
+.tic-tac-whole-container .tick-box .fa-circle{
+    font-size: 100% !important;
+}
+
+.tic-tac-whole-container .who-container{
+    background-color: #FFC0CB;
+    width: 90%;
+    align-self: center;
+    margin: 0 auto;
+    height: 130px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
 }

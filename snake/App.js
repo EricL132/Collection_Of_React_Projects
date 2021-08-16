@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-
+let reload
 class App extends React.Component {
     constructor() {
         super()
@@ -25,7 +25,7 @@ class App extends React.Component {
 
     componentDidMount() {
 
-        setInterval(this.moveSnake, this.state.speed)
+       reload = setInterval(this.moveSnake, this.state.speed)
         this.setState({
             foodStyle: {
                 top: `${this.state.food[0]}%`,
@@ -36,7 +36,9 @@ class App extends React.Component {
 
         document.onkeydown = this.handleKeyPress;
     }
-
+    componentWillUnmount(){
+        clearInterval(reload)
+    }
     handleKeyPress(e) {
         switch (e.keyCode) {
             case 40:
@@ -62,6 +64,8 @@ class App extends React.Component {
                     this.setState({ direction: 'left' })
                 }
                 break;
+            default:
+                break;
         }
     }
     moveSnake() {
@@ -86,6 +90,8 @@ class App extends React.Component {
                 case "left":
                     head = [head[0] - 2, head[1]]
 
+                    break;
+                default:
                     break;
             }
             boxes.push(head)
@@ -134,7 +140,7 @@ class App extends React.Component {
             let head = this.state.snakeBoxes[this.state.snakeBoxes.length - 1]
             snake.pop()
             snake.forEach((box) => {
-                if (head[0] == box[0] && head[1] == box[1]) {
+                if (head[0] === box[0] && head[1] === box[1]) {
                     this.handleGameover()
                 }
             })

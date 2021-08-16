@@ -7,15 +7,15 @@
     align-items: center;
 }
 
-.snake-game-container {
-    width: 33%;
-    height: 70%;
+.snake-game-whole-container .snake-game-container {
+    width: 550px;
+    height: 500px;
     position: relative;
     background: white;
 }
 
 
-.snake-box{
+.snake-game-whole-container .snake-box{
     position: absolute;
     background-image: linear-gradient( 90.5deg,  rgba(255,207,139,0.50) 1.1%, rgba(255,207,139,1) 81.3% );
     width: 2.5%;
@@ -25,7 +25,7 @@
 
 }
 
-.food-box{
+.snake-game-whole-container .food-box{
     position: absolute;
     background-color: red;
     width: 2.5%;
@@ -33,7 +33,7 @@
     border: 1px solid white;
 }
 
-.game-over-container{
+.snake-game-whole-container .game-over-container{
     top: 0;
     left: 0;
     position: fixed;
@@ -47,7 +47,7 @@
 
 }
 
-.game-over-message{
+.snake-game-whole-container .game-over-message{
     width: 200px;
     height: 100px;
     background-color: #8BC6EC;
@@ -56,12 +56,23 @@
 }
 
 
-.game-over-message button{
+.snake-game-whole-container .game-over-message button{
     border-radius: 5px;
     outline: none;
     cursor: pointer;
     background-color: #85FFBD;
     background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
     
+    
+}
+
+
+@media (max-width:500px){
+    .snake-game-whole-container .snake-game-container {
+        width: 90%;
+        height: 500px;
+        position: relative;
+        background: white;
+    }
     
 }

@@ -1,0 +1,53 @@
+.simple_note_pad{
+    background-color: #0e0e10;
+    height: 100%;
+}
+
+.simple_note_pad .text_area{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 80%;
+    background-color: #0e0e10;
+    color: rgb(204, 204, 204);
+    outline: none;
+    resize:none;
+}
+
+.text_area_default{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    height: 5rem;
+    outline: none;
+    resize:none;
+    background-color: #0e0e10;
+}
+
+.simple_note_pad .text_color{
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.simple_note_pad .show_color_button{
+    cursor: pointer;
+    background-color: rgb(102, 179, 255);
+    color: black;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 5px 15px;
+}
+
+.simple_note_pad .bottom_bar{
+    bottom: 3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}

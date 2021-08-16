@@ -49,7 +49,7 @@ class app extends React.Component {
                         {this.state.movieList.map((movies, i) => {
                             if (movies['poster_path']) {
                                 return <li key={i} className="movie-list">
-                                    <img src={"https://image.tmdb.org/t/p/w1280/" + movies['poster_path']}></img>
+                                    <img src={"https://image.tmdb.org/t/p/w1280/" + movies['poster_path']} alt="movie"></img>
                                     <div className="movie-info">
                                         <h3>{movies['title']}</h3>
                                         <span>{movies['vote_average']}</span>
@@ -61,6 +61,8 @@ class app extends React.Component {
 
                                     </div>
                                 </li>
+                            }else{
+                                return false
                             }
                         })}
                     </ul>

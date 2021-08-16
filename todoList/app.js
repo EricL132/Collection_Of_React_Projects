@@ -17,9 +17,7 @@ class app extends React.Component {
     }
     loadFromLS() {
         const todos1 = JSON.parse(localStorage.getItem('todos'))
-        this.setState({ todos: todos1 }, () => {
-            console.log(this.state.todos)
-        })
+        this.setState({ todos: todos1 })
     }
     saveToLS() {
         localStorage.setItem('todos', JSON.stringify(this.state.todos))
@@ -47,7 +45,7 @@ class app extends React.Component {
 
             this.setState({
                 todos: this.state.todos.map((todos, i) => {
-                    if (i == todoIndex) {
+                    if (i === todoIndex) {
                         return { text: this.state.todos[i]['text'], completed: 'completed' }
                     } else {
                         return todos
@@ -59,7 +57,7 @@ class app extends React.Component {
         } else {
             this.setState({
                 todos: this.state.todos.map((todos, i) => {
-                    if (i == todoIndex) {
+                    if (i === todoIndex) {
                         return { text: this.state.todos[i]['text'], completed: '' }
                     } else {
                         return todos
@@ -76,15 +74,15 @@ class app extends React.Component {
     handleRemoveTodo(e) {
         e.preventDefault()
         const todoIndex = e.target.getAttribute('data-index')
-        console.log(todoIndex)
         this.setState({
             todos: this.state.todos.filter((todos, i) => {
-                if (i != todoIndex) {
+                if (i !== todoIndex) {
                     return todos
+                }else{
+                    return false
                 }
             })
         }, () => {
-            console.log(this.state.todos)
             this.saveToLS()
         })
     }
@@ -98,7 +96,7 @@ class app extends React.Component {
                         <ul className="todos">
 
                             {this.state.todos.map((todos, i) => {
-                                return <li onContextMenu={this.handleRemoveTodo} className={todos['completed']} onClick={this.handleCrossTodo} data-index={i} key={i}>{todos['text']}</li>
+                                return <li onContextMenu={this.handleRemoveTodo} onTouchMove={this.handleRemoveTodo} className={todos['completed']} onClick={this.handleCrossTodo} data-index={i} key={i}>{todos['text']}</li>
                             })
                             }
                         </ul>
@@ -106,6 +104,7 @@ class app extends React.Component {
                 </form>
                 <small style={{ marginTop: "2rem" }}>Left click to mark complete</small>
                 <small>Right click to remove</small>
+                <small>Drag on mobile to remove</small>
 
                 </div>
         )

@@ -33,7 +33,7 @@ class app extends React.Component {
         const box = e.target
         if (!this.state.winner) {
             if (this.state.whosTurn === 'x') {
-                if (!box.classList.contains('fa-times') && !box.classList.contains('fa-circle')) {
+                if (!box.classList.contains('fa-times') && !box.classList.contains('fa-circle') && e.target.children.length<1) {
                     const newEle = document.createElement('i')
                     newEle.className = 'box fas fa-times'
                     box.appendChild(newEle)
@@ -41,7 +41,7 @@ class app extends React.Component {
                     this.checkWin('fa-times')
                 }
             } else {
-                if (!box.classList.contains('fa-times') && !box.classList.contains('fa-circle')) {
+                if (!box.classList.contains('fa-times') && !box.classList.contains('fa-circle')&& e.target.children.length<1) {
                     const newEle = document.createElement('i')
                     newEle.className = 'box far fa-circle'
                     box.appendChild(newEle)
@@ -81,7 +81,6 @@ class app extends React.Component {
         this.setState({ winner: "" })
         this.setState({ whosTurn: "" }, () => {
             const button = document.getElementsByClassName('button-container')
-            console.log(button)
             if(button[0].firstElementChild.nodeName!=="BUTTON"){
                 button[0].removeChild(button[0].firstElementChild)
             }
@@ -90,7 +89,7 @@ class app extends React.Component {
     }
     render() {
         return (
-            <div className="whole-container">
+            <div className="tic-tac-whole-container">
 
                 {this.state.whosTurn ?
                     <>

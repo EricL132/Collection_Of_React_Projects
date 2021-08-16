@@ -24,7 +24,7 @@ class App extends React.Component {
         if (this.state.sortingArray.length > 0) {
             this.setState({ isQuickSort: false })
             this.setState({ isBubbleSort: false })
-            Array.from(document.getElementsByClassName('item-bar')).map((ele) => { ele.style.backgroundColor = "#63b88f" })
+            Array.from(document.getElementsByClassName('item-bar')).map((ele) => { return ele.style.backgroundColor = "#63b88f" })
         }
         for (var i = 0; i < 22; i++) {
             arr.push(Math.floor(Math.random() * (500 - 10) + 10))

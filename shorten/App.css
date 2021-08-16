@@ -7,7 +7,6 @@
     --text-color-white: #fff;
     --text-color-black: black;
     --ligher-white: #eeeeee;
-  
     --outline-lighter-background: #18181b;
   }
   
@@ -77,4 +76,16 @@
     display: flex;
     flex-direction: column;
     margin-top: 4rem;
+}
+
+
+@media(max-width:700px){
+    .short-container{
+        width: 90%;
+        height: 500px;
+        background-color: var(--lighter-background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

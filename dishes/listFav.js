@@ -1,7 +1,7 @@
 import React from 'react'
 import './app.css'
 
-class favList extends React.Component {
+/* class favList extends React.Component {
     constructor(props) {
         super(props)
         this.state = { meals: [], mealList: [] }
@@ -24,4 +24,15 @@ class favList extends React.Component {
     }
 }
 
-export default favList;
+ */
+
+
+function FavList(props) {
+    return (
+        props.mealList.map((meals, i) => {
+            return <li key={i}><img alt="meal" onClick={(e)=>props.loadMealInfo(e)} mealid={meals['meals'][0]['idMeal']} src={meals['meals'][0]['strMealThumb']} ></img><span>{meals['meals'][0]['strMeal']}</span><button name={meals['meals'][0]['idMeal']} onClick={(e)=>props.removeFav(e.currentTarget.getAttribute('name'))} className="deleteFav"><i className="fas fa-window-close"></i></button></li>
+        })
+    )
+
+}
+export default FavList;
