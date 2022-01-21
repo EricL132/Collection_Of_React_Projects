@@ -34,7 +34,7 @@ class App extends React.Component {
       const newnum = this.state.currentString.toString()
       console.log(this.state.upperprint)
       const result = this.state.operators[this.state.upperprint[this.state.upperprint.length - 1]](parseFloat(uppernum), parseFloat(newnum)).toString()
-      this.setState({ equal: uppernum.toString() + this.state.upperprint[this.state.upperprint.length - 1] + newnum.toString() + "=" })
+      this.setState({ equal: uppernum.toString() + this.state.upperprint[this.state.upperprint.length - 1] + newnum.toString() })
       this.setState({ currentString: result })
       console.log(result)
 
@@ -64,8 +64,6 @@ class App extends React.Component {
 
       }
     } else {
-      console.log('cvx')
-      console.log(this.state.currentString)
       this.setState({ upperprint: [this.state.currentString, oper] }, () => {
         console.log(this.state.upperprint)
         this.setState({ current: [] })
@@ -92,7 +90,6 @@ class App extends React.Component {
         })
 
       } else {
-        console.log("goes")
         this.performOperation(operator)
       }
     }
@@ -101,7 +98,6 @@ class App extends React.Component {
     const number = e.target.innerText
     this.setState({ current: [...this.state.current, number] }, () => {
       this.renderCurrentString()
-      console.log(this.state.current)
     })
 
   }
@@ -118,7 +114,6 @@ class App extends React.Component {
         })
       }, () => {
         this.renderCurrentString()
-        console.log(this.state.current)
       })
 
     } else {
@@ -157,7 +152,6 @@ class App extends React.Component {
   handleNegateAnswer() {
     this.setState({ upperprint: [] }, () => {
       if (this.state.currentString.includes('-')) {
-        console.log('vcx')
         this.setState({ current: [this.state.currentString.substring(1)] }, () => {
           this.setState({ previousString: "" })
           this.setState({ equal: false })
@@ -254,41 +248,53 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="calculator-whole-container">
-        <div className="calculator-container">
-          <div className="calculator-screen">
+      <div className="calculator_app">
+        <div className="calculator_container">
+          <div className="calculator_screen">
+            <h1 className="name_header">Calculator</h1>
             {!this.state.equal ?
-              <div className="previous-string">{this.state.previousString}</div>
-              : <div className="previous-string">{this.state.equal}</div>}
-
-            <div className="current-string">{this.state.currentString}</div>
+              <div className="previous_box">
+                {this.state.previousString}</div>
+              : <div>
+                  <div className="previous_box">
+                      {this.state.equal} 
+                  </div>
+                  
+                </div>
+                  
+                }
+            
+            <div className="result_box">
+              {this.state.equal && <span className="equal_span">=</span>}
+              <span className="result_span" >{this.state.currentString}</span></div>
           </div>
-          <div className="keys-screen">
-            <div className="calculator-key" onClick={this.handlePercent}><span>%</span></div>
-            <div className="calculator-key" onClick={this.handleClearCurrent}><span>CE</span></div>
-            <div className="calculator-key" onClick={this.clearAll}><span>C</span></div>
-            <div className="calculator-key" onClick={this.removeOne}><span ><i className="fas fa-backspace"></i></span></div>
-            <div className="calculator-key" onClick={this.handleOneOver}><span>1/x</span></div>
-            <div className="calculator-key" onClick={this.handleSquare}><span>x^2</span></div>
-            <div className="calculator-key" onClick={this.handleSquareRoot}><span>2<i className="fas fa-square-root-alt"></i></span></div>
-            <div className="calculator-key" onClick={this.pushOperationToArray}><span>/</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>7</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>8</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>9</span></div>
-            <div className="calculator-key" onClick={this.pushOperationToArray}><span>*</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>4</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>5</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>6</span></div>
-            <div className="calculator-key" onClick={this.pushOperationToArray}><span>-</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>1</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>2</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>3</span></div>
-            <div className="calculator-key" onClick={this.pushOperationToArray}><span>+</span></div>
-            <div className="calculator-key" onClick={this.handleNegateAnswer}><span>+/-</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>0</span></div>
-            <div className="calculator-key" onClick={this.pushNumToArray}><span>.</span></div>
 
-            <div className="calculator-key" onClick={this.performEqual}><span>=</span></div>
+
+          <div className="input_screen">
+            <div className="calculator_button" onClick={this.handlePercent}><span>%</span></div>
+            <div className="calculator_button" onClick={this.handleClearCurrent}><span>CE</span></div>
+            <div className="calculator_button" onClick={this.clearAll}><span>C</span></div>
+            <div className="calculator_button" onClick={this.removeOne}><span ><i className="fas fa-backspace"></i></span></div>
+            <div className="calculator_button" onClick={this.handleOneOver}><span>1/x</span></div>
+            <div className="calculator_button" onClick={this.handleSquare}><span>x^2</span></div>
+            <div className="calculator_button" onClick={this.handleSquareRoot}><span>2<i className="fas fa-square-root-alt"></i></span></div>
+            <div className="calculator_button" onClick={this.pushOperationToArray}><span>/</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>7</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>8</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>9</span></div>
+            <div className="calculator_button" onClick={this.pushOperationToArray}><span>*</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>4</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>5</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>6</span></div>
+            <div className="calculator_button" onClick={this.pushOperationToArray}><span>-</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>1</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>2</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>3</span></div>
+            <div className="calculator_button" onClick={this.pushOperationToArray}><span>+</span></div>
+            <div className="calculator_button" onClick={this.handleNegateAnswer}><span>+/-</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>0</span></div>
+            <div className="calculator_button" onClick={this.pushNumToArray}><span>.</span></div>
+            <div className="calculator_button" onClick={this.performEqual}><span>=</span></div>
 
           </div>
         </div>

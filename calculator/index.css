@@ -1,7 +1,14 @@
 body {
   margin: 0;
+  background-color: var(--light_green);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 *{
   box-sizing: border-box;
+}
+:root{
+  --light_green: #76e386;
+  --grey: #A9A9A9;
+  --white: #fff;
 }
