@@ -1,6 +1,5 @@
-
-.countdown-full {
-  background: url('./backg.jpg') no-repeat center center fixed; 
+.countdown_full {
+  background: url("./background.jpg") no-repeat center center fixed;
   margin: 0;
   background-size: cover;
   text-align: center;
@@ -12,26 +11,25 @@
   color: #eeeeee;
   user-select: none;
 }
-.countdown-full h1 {
+h1 {
   font-size: 4rem;
 }
 
-.countdown-full .countdown-container {
+.countdown_container {
   display: inline-flex;
 }
 
-.countdown-full .big-text {
+.big_text {
   line-height: 1;
   font-size: 5rem;
   margin: -1rem 3rem;
 }
 
-.countdown-full .count-dm {
+.count_dm {
   text-align: center;
-
 }
 
-.countdown-full .count-dm span {
+.count_dm span {
   display: block;
   margin-top: 1rem;
   font-size: 1.5rem;
