@@ -1,5 +1,5 @@
-import React from 'react'
-import './app.css'
+import React from "react";
+import "./app.css";
 
 /* class favList extends React.Component {
     constructor(props) {
@@ -26,13 +26,29 @@ import './app.css'
 
  */
 
-
 function FavList(props) {
+  return props.mealList.map((meals, i) => {
     return (
-        props.mealList.map((meals, i) => {
-            return <li key={i}><img alt="meal" onClick={(e)=>props.loadMealInfo(e)} mealid={meals['meals'][0]['idMeal']} src={meals['meals'][0]['strMealThumb']} ></img><span>{meals['meals'][0]['strMeal']}</span><button name={meals['meals'][0]['idMeal']} onClick={(e)=>props.removeFav(e.currentTarget.getAttribute('name'))} className="deleteFav"><i className="fas fa-window-close"></i></button></li>
-        })
-    )
-
+      <li className="fav_meals_items" key={i}>
+        <div className="fav_list_image">
+          <img
+            className="circle_image"
+            alt="meal"
+            onClick={(e) => props.loadMealInfo(e)}
+            mealid={meals["meals"][0]["idMeal"]}
+            src={meals["meals"][0]["strMealThumb"]}
+          ></img>
+        </div>
+        <span className="inline_span">{meals["meals"][0]["strMeal"]}</span>
+        <button
+          className="delete_fav"
+          name={meals["meals"][0]["idMeal"]}
+          onClick={(e) => props.removeFav(e.currentTarget.getAttribute("name"))}
+        >
+          <i className="fas fa-times"></i>
+        </button>
+      </li>
+    );
+  });
 }
 export default FavList;

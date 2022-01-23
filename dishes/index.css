@@ -3,5 +3,10 @@
 }
 body{
     margin: 0;
-
+    background-color: #191919;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }

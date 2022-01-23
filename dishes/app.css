@@ -1,75 +1,106 @@
-
-.dish-full{
-    margin: 0;
-    background-color: #8EC5FC;
-    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    min-height: 100vh;
-
-
+.mid_con {
+    position: absolute;
+    margin-top: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.dish-full .mobile-container {
-    width: 350px;
+.dishes_container {
+    width: 325px;
     background-color: white;
-    margin-top: 6rem;
+    border-radius: 5px;
+
+    display: inline-block;
 }
 
-.dish-full img {
-    max-width: 100%;
-}
-
-.dish-full header {
+.dishes_head {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem;
 }
 
-.dish-full header input {
-    background-color: #d0a1ff;
-    border: none;
+.search_input {
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 3px;
-    padding: 0.5rem;
+    padding: 0.25rem;
     width: 100%;
 }
 
-.dish-full header button {
+.search_button {
     border: none;
     background-color: transparent;
-    color: #d0a1ff;
-    font-size: 2rem;
     outline: none;
+    cursor: pointer;
 }
-
-.dish-full .fav-container {
+.search_button:hover {
+    color: darkgray;
+}
+.fav_container {
     text-align: center;
     padding: 1rem;
-    background-color: #d0a1ff;
+    box-shadow: 0 0 10px 2px #3333;
+    border-radius: 5px;
 }
 
-.dish-full .fav-meals {
+.fav_meals_ul {
+    position: relative;
     overflow-x: auto;
     display: flex;
     padding: 0;
     list-style: none;
-    justify-content: space-between;
-    min-height: 75px;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100px;
+    overscroll-behavior: contain;
 }
 
-.dish-full .fav-meals li {
+.fav_meals_ul::-webkit-scrollbar {
+    height: 0;
+}
+.fav_meals_items {
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    min-width: 100px;
-    
+    padding: 10px 5px;
+    box-shadow: 0 0 10px 2px #3333;
+    margin: 5px;
+    border-radius: 5px;
+    min-height: 142px;
 }
 
-.dish-full .fav-meals .deleteFav {
+.select_false {
+    user-select: none;
+}
+.fav_list_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.circle_image {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+}
+
+.inline_span {
+    overflow: hidden;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    bottom: 0;
+    height: 62px;
+    cursor: default;
+}
+
+.delete_fav {
     position: absolute;
     top: 0;
     right: 0;
@@ -80,65 +111,52 @@
     opacity: 0;
 }
 
-.dish-full .fav-meals li:hover .deleteFav {
+.fav_meals_items:hover .delete_fav {
     opacity: 1;
 }
 
-.dish-full .fav-meals li img {
-
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    object-fit: cover;
-    height: 60px;
-    width: 60px;
-}
-
-.dish-full .fav-meals li span {
-    overflow: hidden;
-    display: inline-block;
-    outline: none;
-    border: none    ;
-}
-
-.dish-full .meal {
+.meal {
     margin: 1rem;
+
     box-shadow: 0 0 10px 2px #3333;
     border-radius: 3px;
     overflow: hidden;
 }
 
-.dish-full .meal-header {
+.meal_header {
     position: relative;
     cursor: pointer;
 }
 
-.dish-full .meal-header .random {
+.random_meal {
     position: absolute;
-    margin-top: 20px;
+    top: 20px;
     background-color: white;
-    padding: .25rem 1rem;
+    padding: 0.25rem 0.8rem;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    font-size: 14px;
 }
 
-.dish-full .meal-header img {
+.meal_img {
     height: 200px;
     width: 100%;
     object-fit: cover;
+    visibility: hidden;
 }
 
-.dish-full .meal-body h4 {
+.margin_0 {
     margin: 0;
 }
 
-.dish-full .meal-body {
+.name_container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem;
 }
 
-.dish-full .meal .fav-btn {
+.favorite_button {
     background-color: transparent;
     border: none;
     font-size: 1rem;
@@ -147,11 +165,11 @@
     outline: none;
 }
 
-.dish-full .meal .fav-btn.active {
-    color: #eeaeca;
+.favorite_button.active {
+    color: #fc5c5c;
 }
 
-.dish-full .meal-info-container {
+.meal_info_container {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     left: 0;
@@ -164,7 +182,7 @@
     overflow-y: hidden;
 }
 
-.dish-full .meal-info {
+.meal_info {
     background-color: white;
     border-radius: 5px;
     max-width: 400px;
@@ -176,15 +194,15 @@
     overscroll-behavior: contain;
 }
 
-.dish-full .meal-info::-webkit-scrollbar {
+.meal_info::-webkit-scrollbar {
     width: 0px;
 }
 
-.dish-full .meal-info h1 {
+.text_center {
     text-align: center;
 }
 
-.dish-full .meal-info .close-popup {
+.close_popup {
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -194,6 +212,10 @@
     position: absolute;
 }
 
-.dish-full .meal-info .close-popup:hover {
+.close_popup:hover {
     color: lightblue;
+}
+
+.image_fit {
+    width: 100%;
 }
